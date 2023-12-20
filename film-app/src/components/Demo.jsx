@@ -1,15 +1,15 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-const MovieTrailer = ({ videoId }) => {
+const MovieTrailer = ({ videoId , defaultWidth, defaultHeight }) => {
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
 
   return (
     <Container className="movie-trailer" >
       <iframe 
         
-        width={170}
-        height={200}
+        width={defaultWidth}
+        height={defaultHeight}
         src={videoSrc} 
         title="YouTube video player" 
         frameborder="0"

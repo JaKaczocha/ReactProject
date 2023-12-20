@@ -1,47 +1,37 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Logo from './components/Logo';
 import SearchEngine from './components/SearchEngine';
 import LoginButton from './components/LoginButton';
 import Footer from './components/Footer';
-import Film from './components/Film'; // importuj komponent Film
+import Film from './components/Film';
+import Home from './components/Home'; // Nowy komponent dla strony głównej
+import FilmDetails from './components/FilmDetails'; // Nowy komponent dla szczegółów filmu
+import AddFilm from './components/AddFilm'; // Nowy komponent dla dodawania nowego filmu
+import SignIn from './components/SignIn'; // Nowy komponent dla logowania
+import SignUp from './components/SignUp'; // Nowy komponent dla rejestracji
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const films = [ // dodaj tablicę z danymi filmów
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.5', ratingCount: '1000', title: 'Film 1', titleInEnglish: 'Film 1', productionDate: '2020', genre: 'Akcja', director: 'Reżyser 1' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '7.5', ratingCount: '2000', title: 'Film 2', titleInEnglish: 'Film 2', productionDate: '2021', genre: 'Komedia', director: 'Reżyser 2' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '9.0', ratingCount: '3000', title: 'Film 3', titleInEnglish: 'Film 3', productionDate: '2022', genre: 'Dramat', director: 'Reżyser 3' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.0', ratingCount: '4000', title: 'Film 4', titleInEnglish: 'Film 4', productionDate: '2023', genre: 'Thriller', director: 'Reżyser 4' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.5', ratingCount: '1000', title: 'Film 1', titleInEnglish: 'Film 1', productionDate: '2020', genre: 'Akcja', director: 'Reżyser 1' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '7.5', ratingCount: '2000', title: 'Film 2', titleInEnglish: 'Film 2', productionDate: '2021', genre: 'Komedia', director: 'Reżyser 2' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '9.0', ratingCount: '3000', title: 'Film 3', titleInEnglish: 'Film 3', productionDate: '2022', genre: 'Dramat', director: 'Reżyser 3' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.0', ratingCount: '4000', title: 'Film 4', titleInEnglish: 'Film 4', productionDate: '2023', genre: 'Thriller', director: 'Reżyser 4' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.5', ratingCount: '1000', title: 'Film 1', titleInEnglish: 'Film 1', productionDate: '2020', genre: 'Akcja', director: 'Reżyser 1' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '7.5', ratingCount: '2000', title: 'Film 2', titleInEnglish: 'Film 2', productionDate: '2021', genre: 'Komedia', director: 'Reżyser 2' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '9.0', ratingCount: '3000', title: 'Film 3', titleInEnglish: 'Film 3', productionDate: '2022', genre: 'Dramat', director: 'Reżyser 3' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.0', ratingCount: '4000', title: 'Film 4', titleInEnglish: 'Film 4', productionDate: '2023', genre: 'Thriller', director: 'Reżyser 4' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.5', ratingCount: '1000', title: 'Film 1', titleInEnglish: 'Film 1', productionDate: '2020', genre: 'Akcja', director: 'Reżyser 1' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '7.5', ratingCount: '2000', title: 'Film 2', titleInEnglish: 'Film 2', productionDate: '2021', genre: 'Komedia', director: 'Reżyser 2' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '9.0', ratingCount: '3000', title: 'Film 3', titleInEnglish: 'Film 3', productionDate: '2022', genre: 'Dramat', director: 'Reżyser 3' },
-    { videoId: 'oyRxxpD3yNw?si=nFA94t4BYLshlpey', ratingValue: '8.0', ratingCount: '4000', title: 'Film 4', titleInEnglish: 'Film 4', productionDate: '2023', genre: 'Thriller', director: 'Reżyser 4' }
-    // dodaj więcej filmów według potrzeb
-  ];
+  
 
   return (
-    <div className="App">
-      <div className="header">
-        <Logo />
-        <SearchEngine />
-        <LoginButton />
+    <Router>
+      <div className="App">
+        
+        <div className="content" id='content'>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/details/:idFilmu" element={<FilmDetails />} />
+            <Route path="/add" element={<AddFilm />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </div>
+        
       </div>
-      <div className="content" id='content' >
-        {films.map((film, index) => ( // wyświetl każdy film jako komponent Film
-          <Film key={index} {...film} />
-        ))}
-      </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 

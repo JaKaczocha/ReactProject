@@ -1,0 +1,41 @@
+.film-grid {
+    
+    padding-top: 10px;
+    background-color: #eccda7;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5px;
+    row-gap: 5px;
+  }
+
+  .content {
+    margin-top: 75px; /* Adjust the top margin to create space below the header */
+  }
+  
+  .header {
+    display: flex;
+    background-color: #986966;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    gap: 20px; /* dodaj odstęp między logo a wyszukiwarką */
+  }
+  
+  .logo-container {
+    position: relative;
+    padding: 0px;
+  }
+  
+  .logo-container img {
+    height: 80px; /* możesz dostosować tę wartość */
+    
+  }
+
+  .App {
+    background-color: #eccda7;
+  }
+  

@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    background-color: #986966;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    gap: 20px; /* Add space between logo and search engine */
+  }
+  
+  .content {
+    margin-top: 75px; /* Adjust the top margin to create space below the header */
+  }
+  
+  .movie-details {
+    max-width: 800px; /* Set the maximum width for the movie details section */
+    margin: 0 auto; /* Center the movie details horizontally */
+    background-color: #eccda7;
+  }
+  
+  .movie-details h2 {
+    margin-top: 0; /* Remove the top margin on the h2 element */
+  }
+  
+  .logo-container {
+    position: relative;
+    padding: 0px;
+  }
+  
+  .logo-container img {
+    height: 80px; /* You can adjust this value */
+  }
+  
+  .App {
+    background-color: #eccda7;
+  }
