@@ -1,14 +1,14 @@
 .header {
-    display: flex;
-    background-color: #986966;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    gap: 20px; /* Add space between logo and search engine */
-  }
+  display: flex;
+  background-color: #986966;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  gap: 20px; /* dodaj odstęp między logo a wyszukiwarką */
+}
   
   .content {
     margin-top: 75px; /* Adjust the top margin to create space below the header */

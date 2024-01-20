@@ -1,17 +1,20 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Rating from './Rating'; 
 import Title from './Title'; 
 import './../App.css';
 
+const Film = ({ id, image, rate, title, titleInEnglish, productionDate, genre, director, className, login, isLoggedIn, token }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
 
+  const handleFilmDetailsNavigation = () => {
+    // Use navigate to move to FilmDetails and pass relevant state
+    navigate(`/details/${id}`, { state: { login, isLoggedIn, token , id} });
+  };
 
-const Film = ({ id, image, rate, title, titleInEnglish, productionDate, genre, director, className }) => {
-  
   return (
-    <Link to={`/details/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <div onClick={handleFilmDetailsNavigation} style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
       <Card className={`mb-3 ${className || ''}`} style={{ backgroundColor: '#ffeadc' }}>
         <Card.Body className="p-0">
           <Container className="movie-trailer">
@@ -31,7 +34,7 @@ const Film = ({ id, image, rate, title, titleInEnglish, productionDate, genre, d
           </Container>
         </Card.Body>
       </Card>
-    </Link>
+    </div>
   );
 };
 

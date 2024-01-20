@@ -56,7 +56,7 @@ const SignUp = () => {
     <div>
       <div className="header">
         <Logo />
-        <SearchEngine />
+        
         <LoginButton />
       </div>
       <Container

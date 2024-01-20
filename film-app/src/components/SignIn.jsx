@@ -44,8 +44,11 @@ const SignIn = () => {
       // Log a message to the console after successful login
       console.log('Login successful!');
   
-      // Redirect to Home component with isLoggedIn value
-      navigate('/', { state: { isLoggedIn: true, login } });
+      // Parse the response to extract the token
+      const token = response.data.token;
+  
+      // Redirect to Home component with isLoggedIn value and token
+      navigate('/', { state: { isLoggedIn: true, login, token } });
     } catch (error) {
       setLoggedIn(false);
       setLoginError('Błędny login lub hasło');
@@ -58,18 +61,8 @@ const SignIn = () => {
     <div>
       <div className="header">
         <Logo />
-        <SearchEngine />
-        {isLoggedIn ? (
-          <Button
-            variant="primary"
-            onClick={handleLogout}
-            style={{ backgroundColor: '#a53b5b', marginRight: '1rem' }}
-          >
-            Wyloguj
-          </Button>
-        ) : (
-          <LoginButton />
-        )}
+        
+        
       </div>
       <Container
         style={{
